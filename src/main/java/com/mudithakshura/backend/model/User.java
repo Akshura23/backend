@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-/* Created by mudith */
+/* Created by mudith akshura */
 @Entity
 public class User {
     @Id
