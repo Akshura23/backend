@@ -4,6 +4,7 @@ import com.mudithakshura.backend.model.User;
 import com.mudithakshura.backend.repository.UserRepostitory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,10 +19,9 @@ public class UserController {
     @Autowired
     private UserRepostitory userRepostitory;
 
-    @PostMapping("/user")
-    User newUser(@RequestBody User newUser){
-
-        return userRepostitory.save(newUser);
+    @GetMapping
+    public ResponseEntity<String> sayHello(){
+        return ResponseEntity.ok("Hi User");
     }
 
     @GetMapping("/users")
