@@ -32,8 +32,9 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request.requestMatchers("/api/auth/**")
                         .permitAll()
-                        .requestMatchers("api/admin").hasAnyAuthority(Role.ADMIN.name())
-                        .requestMatchers("api/user").hasAnyAuthority(Role.USER.name())
+                        .requestMatchers("/api/admin").hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers("/api/user").hasAnyAuthority(Role.USER.name())
+                        .requestMatchers("/api/**").hasAnyAuthority(Role.USER.name())
                         .anyRequest().authenticated())
 
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -53,6 +54,7 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
+
         return new BCryptPasswordEncoder();
     }
 

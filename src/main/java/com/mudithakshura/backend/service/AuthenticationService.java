@@ -7,9 +7,9 @@ import com.mudithakshura.backend.dto.SigninRequest;
 import com.mudithakshura.backend.model.User;
 
 public interface AuthenticationService {
-    User signup(SignUpRequest signUpRequest);
+    public User signup(SignUpRequest signUpRequest);
 
-    JwtAuthenticationResponse signin(SigninRequest signinRequest);
+    public JwtAuthenticationResponse signin(SigninRequest signinRequest);
 
-    JwtAuthenticationResponse refreshToken(RefreshTokenRequest refreshTokenRequest);
+    public JwtAuthenticationResponse refreshToken(RefreshTokenRequest refreshTokenRequest);
 }

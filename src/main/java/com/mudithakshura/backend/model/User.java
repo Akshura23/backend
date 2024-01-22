@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
-
 /* Created by mudith akshura */
 @Data
 @Builder
@@ -23,9 +22,12 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String firstname;
+
     private String lastname;
     private String email;
+
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -38,26 +40,31 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
+
         return email;
     }
 
     @Override
     public boolean isAccountNonExpired() {
+
         return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
+
         return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
+
         return true;
     }
 
     @Override
     public boolean isEnabled() {
+
         return true;
     }
 }
